@@ -3,7 +3,7 @@ import { Feature, OptForm } from '../components';
 import { JumbotronContainer } from '../containers/jumbotron';
 import { FooterContainer } from '../containers/footer';
 import { FaqsContainer } from '../containers/faqs';
-import HeaderContainer from '../containers/header';
+import { HeaderContainer } from '../containers/header';
 
 export default function Home() {
   return (
