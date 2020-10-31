@@ -7,8 +7,8 @@ import IsUserRedirect, { ProtectedRoute } from './helpers/routes';
 export default function App() {
   const user = { name: 'Kurl' };
   return (
-    <Switch>
-      <Router>
+    <Router>
+      <Switch>
         <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.SIGN_IN}>
           <SignIn />
         </IsUserRedirect>
@@ -21,7 +21,7 @@ export default function App() {
         <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.HOME}>
           <Home />
         </IsUserRedirect>
-      </Router>
-    </Switch>
+      </Switch>
+    </Router>
   );
 }
