@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowseContainer } from '../containers/browse';
 import { useContent } from '../hooks';
 import selectionFilter from '../utils/selection-filter';
 
@@ -9,7 +10,7 @@ export default function Browse() {
 
   return (
     <div>
-      <h1>Browse</h1>
+      <BrowseContainer slides={slides} />
     </div>
   );
 }
