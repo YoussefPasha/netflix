@@ -10,17 +10,8 @@ export const GlobalStyles = createGlobalStyle`
   font-size: 16px;
   
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
-body::-webkit-scrollbar {
-  width: 0.5em;
-}
- 
-body::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
- 
-body::-webkit-scrollbar-thumb {
-  background-color: #e50914;
-  outline: 1px solid slategrey;
-}
 `;
