@@ -9,6 +9,7 @@ import {
   Feature,
   FeatureCallOut,
   Text,
+  Link,
 } from './styles/header';
 
 export default function Header({ bg = true, children, ...restProps }) {
@@ -25,6 +26,10 @@ Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }
 
 Header.Text = function HeaderText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
+};
+
+Header.TextLink = function HeaderTextLink({ children, ...restProps }) {
+  return <Link {...restProps}>{children}</Link>;
 };
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {
