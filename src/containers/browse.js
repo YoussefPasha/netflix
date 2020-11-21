@@ -1,23 +1,30 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { SelectProfileContainer } from './profile';
 import { FirebaseContext } from '../context/firebase';
-import { Loading, Header } from '../components';
+import { Loading, Header, Card } from '../components';
 import * as ROUTES from '../constants/routes';
 import logo from './logo.svg';
 
 export function BrowseContainer({ slides }) {
+  const [category, setCategory] = useState('series');
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   const { firebase } = useContext(FirebaseContext);
   const [searchTerm, setSearchTerm] = useState('');
-
   const user = firebase.auth().currentUser || {};
+  const [slideRows, setSlideRows] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
   }, [profile.displayName]);
+
+  useEffect =
+    (() => {
+      setSlideRows(slides[category]);
+    },
+    [slides, category]);
 
   return profile.displayName ? (
     <>
@@ -55,6 +62,7 @@ export function BrowseContainer({ slides }) {
           <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
+      <Card.Group />
     </>
   ) : (
     <SelectProfileContainer user={user} setProfile={setProfile} />
