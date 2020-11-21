@@ -85,6 +85,7 @@ export const Link = styled.p`
   text-decoration: none;
   margin-right: 30px;
   font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
+  background-color: ${({ Btn }) => (Btn === 'true' ? '#212121' : '')};
   cursor: pointer;
 
   &:hover {
