@@ -11,6 +11,9 @@ import {
   Text,
   Link,
   Group,
+  Picture,
+  Profile,
+  Dropdown,
 } from './styles/header';
 
 export default function Header({ bg = true, children, ...restProps }) {
@@ -27,6 +30,10 @@ Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }
 
 Header.Text = function HeaderText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
+};
+
+Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
+  return <Dropdown {...restProps}>{children}</Dropdown>;
 };
 
 Header.TextLink = function HeaderTextLink({ children, ...restProps }) {
@@ -51,4 +58,12 @@ Header.Logo = function HeaderLogo({ to, ...restProps }) {
       <Logo {...restProps} />
     </ReactRouterLink>
   );
+};
+
+Header.Picture = function HeaderPicture({ src, ...restProps }) {
+  return <Picture {...restProps} src={`/images/users/${src}.png`} />;
+};
+
+Header.Profile = function HeaderProfile({ children, ...restProps }) {
+  return <Profile {...restProps}>{children}</Profile>;
 };
