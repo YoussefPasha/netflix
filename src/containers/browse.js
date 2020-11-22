@@ -5,7 +5,6 @@ import { FirebaseContext } from '../context/firebase';
 import { Loading, Header, Card } from '../components';
 import * as ROUTES from '../constants/routes';
 import logo from './logo.svg';
-import { Item } from '../components/jumbotron/styles/jumbotron';
 
 export function BrowseContainer({ slides }) {
   const [category, setCategory] = useState('series');
@@ -33,14 +32,15 @@ export function BrowseContainer({ slides }) {
         <Header.Frame>
           <Header.Group>
             <Header.Logo src={logo} to={ROUTES.HOME} alt="Netflix" />
-            <Header.TextLink Btn = "true"
+            <Header.TextLink
+              Btn="true"
               active={category === 'series' ? 'true' : 'false'}
               onClick={() => setCategory('series')}
             >
               Series
             </Header.TextLink>
             <Header.TextLink
-              Btn = "true"
+              Btn="true"
               active={category === 'films' ? 'true' : 'false'}
               onClick={() => setCategory('films')}
             >
@@ -85,12 +85,24 @@ export function BrowseContainer({ slides }) {
           <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
             <Card.Title>{slideItem.title}</Card.Title>
             <Card.Entities>
-              {slideItem.data.map((item) => (
-                <Card.Item key={Item.docId} item={item}>
-                  <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} />
+              {slideItem.data.map((item, index) => (
+                <Card.Item key={index} item={item}>
+                  <Card.Image
+                    src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
+                  />
+                  <Card.Meta>
+                    <Card.SubTitle>{item.title}</Card.SubTitle>
+                    <Card.Text>{item.description}</Card.Text>
+                  </Card.Meta>
                 </Card.Item>
               ))}
             </Card.Entities>
+            <Card.Feature category={category}>
+              {/* <Player>
+                <Player.Button />
+                <Player.Video src="/videos/bunny.mp4"/>
+              </Player> */}
+            </Card.Feature>
           </Card>
         ))}
       </Card.Group>
