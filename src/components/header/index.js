@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
-// eslint-disable-next-line prettier/prettier
 import {
   ButtonLink,
   Logo,
